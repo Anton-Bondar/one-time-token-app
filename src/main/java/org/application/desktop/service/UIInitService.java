@@ -4,12 +4,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class UIInitService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UIInitService.class);
 
     public Parent loadRootNode(ConfigurableApplicationContext context) {
         URL url = getClass().getClassLoader().getResource("token-app.fxml");
@@ -18,7 +21,7 @@ public class UIInitService {
         try {
             return fxmlLoader.load();
         } catch (IOException e) {
-            //TODO log exception
+            LOGGER.error("error during UI initialization", e);
         }
         return null;
     }
