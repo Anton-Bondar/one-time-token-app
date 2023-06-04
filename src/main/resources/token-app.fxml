@@ -8,8 +8,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="221.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.application.desktop.controller.AppController">
     <children>
-        <TextField layoutX="11.0" layoutY="191.0" prefHeight="25.0" prefWidth="200.0" />
-        <Button fx:id="sendButton" disable="true" layoutX="11.0" layoutY="229.0" mnemonicParsing="false" text="send" />
+        <TextField fx:id="emailTextField" layoutX="11.0" layoutY="191.0" prefHeight="25.0" prefWidth="200.0" />
+        <Button fx:id="sendButton" disable="true" layoutX="11.0" layoutY="229.0" mnemonicParsing="false" text="send" onAction="#onClickSend"/>
         <Label layoutX="11.0" layoutY="165.0" text="Email" />
         <Button fx:id="generateTokenButton" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="generate token" onAction="#onClickGenerate"/>
         <TextArea fx:id="tokenTextArea" disable="true" layoutX="11.0" layoutY="50.0" prefHeight="104.0" prefWidth="200.0" />
