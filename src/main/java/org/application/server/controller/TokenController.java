@@ -1,5 +1,6 @@
 package org.application.server.controller;
 
+import org.application.server.service.TokenProcessingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +20,19 @@ public class TokenController {
    <html>
    """;
 
+   private final TokenProcessingService tokenProcessingService;
+
+   public TokenController(TokenProcessingService tokenProcessingService) {
+      this.tokenProcessingService = tokenProcessingService;
+   }
+
    @GetMapping("{token-value}")
    public ResponseEntity<String> verifyToken(@PathVariable("token-value") String token) {
+      tokenProcessingService.saveToken(token);
       return buildResponse(token, "green", "is");
    }
 
-   private static ResponseEntity<String> buildResponse(String token, String textColor, String placeHolderValue) {
+   private ResponseEntity<String> buildResponse(String token, String textColor, String placeHolderValue) {
       String body = RESPONSE_TEMPLATE.formatted(textColor, token, placeHolderValue);
       return ResponseEntity.status(HttpStatus.OK)
               .contentType(MediaType.TEXT_HTML)

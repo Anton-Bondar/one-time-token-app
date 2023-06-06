@@ -1,22 +1,38 @@
 package org.application.server.model;
 
-public class Token {
-   private Long id;
-   private String token;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-    public Long getId() {
+@Document
+public class Token {
+   @Id
+   private String id;
+   @Indexed(unique = true)
+   private String value;
+
+    public Token(String id, String token) {
+        this.id = id;
+        this.value = token;
+    }
+
+    public Token(String value) {
+        this.value = value;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getToken() {
-        return token;
+    public String getValue() {
+        return value;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setValue(String value) {
+        this.value = value;
     }
 }
