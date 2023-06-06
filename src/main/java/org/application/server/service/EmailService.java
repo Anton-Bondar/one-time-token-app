@@ -22,6 +22,12 @@ public class EmailService {
         this.template = template;
     }
 
+    /**
+     * Forms a message using {@link org.application.server.constant.EmailConstants} and sends it.
+     *
+     * @param to    mail receiver
+     * @param token token value
+     */
     public void sendEmail(String to, String token) {
         javaMailSender.send(buildMessage(to, token));
         LOGGER.info("Token was sent to email {}", to);

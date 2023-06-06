@@ -11,6 +11,9 @@ public class Token {
    @Indexed(unique = true)
    private String value;
 
+    public Token() {
+    }
+
     public Token(String id, String token) {
         this.id = id;
         this.value = token;

@@ -11,6 +11,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Inits JavaFX UI token-app.fxml
+ */
 public class UIInitService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UIInitService.class);
 
