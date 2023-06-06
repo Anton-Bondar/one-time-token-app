@@ -11,10 +11,9 @@ import static org.application.server.constant.EmailConstants.SUBJECT;
 
 @Service
 public class EmailService {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
-    private JavaMailSender javaMailSender;
-    private SimpleMailMessage template;
+    private final JavaMailSender javaMailSender;
+    private final SimpleMailMessage template;
 
     @Autowired
     public EmailService(JavaMailSender javaMailSender, SimpleMailMessage template) {

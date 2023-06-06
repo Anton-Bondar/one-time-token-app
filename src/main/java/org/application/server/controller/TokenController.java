@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/token")
 public class TokenController {
-    private static final String RESPONSE_TEMPLATE = """
+    public static final String RESPONSE_TEMPLATE = """
             <html>
             <body>
             <h2 style="color: %s;">Your token '%s' %s valid</h2>
